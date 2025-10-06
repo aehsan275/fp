@@ -1,9 +1,13 @@
-from Logic import Logic
+from Dictionary import Dictionary
+from Trie import Trie
 
 def main():
-    logic = Logic("words.txt")
-    logic.read_words()
-    print(logic.dictionary)
+    dictionary = Dictionary("words.txt")
+    dictionary.read_words()
+    print(dictionary.dictionary)
+    trie = Trie(dictionary.dictionary)
+    trie.insert_dictionary()
+
 
 if __name__ == "__main__":
     main()
