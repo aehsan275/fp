@@ -28,6 +28,30 @@ class Trie:
                 return True
             current = current.children[index]
         return False
+    
+    def get_valid_words(self, prefix):
+        start = self.root
+        for character in prefix:
+            index = ord(character) - 65
+            if start.children[index] is None:
+                return []
+            start = start.children[index]
+        
+        words = self.dfs(start, prefix)
+        return words
+
+    def dfs(self, current_node, current_word): # using dfs to traverse through trie to get valid words
+        
+        words = []
+        if current_node.endOfWord:
+            words.append(current_word)
+        
+        for index,child in enumerate(current_node.children):
+            if child is not None:
+                words.extend(self.dfs(current_node.children[index], current_word + chr(index + 65)))
+
+        return words
+        
 
     def insert_dictionary(self):
         for word in self.dictionary:
