@@ -18,16 +18,14 @@ class Trie:
             current = current.children[index] # move to next node
         current.endOfWord = True # the word has now ended
 
-    def search(self, word):
+    def is_valid(self, word):
         current = self.root
         for character in word:
             index = ord(character) - 65
             if current.children[index] is None:
                 return False
-            if current.endOfWord:
-                return True
             current = current.children[index]
-        return False
+        return current.endOfWord
     
     def get_valid_words(self, prefix):
         start = self.root
