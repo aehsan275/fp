@@ -18,6 +18,17 @@ class Trie:
             current = current.children[index] # move to next node
         current.endOfWord = True # the word has now ended
 
+    def search(self, word):
+        current = self.root
+        for character in word:
+            index = ord(character) - 65
+            if current.children[index] is None:
+                return False
+            if current.endOfWord:
+                return True
+            current = current.children[index]
+        return False
+
     def insert_dictionary(self):
         for word in self.dictionary:
             self.insert(word)
