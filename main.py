@@ -1,11 +1,9 @@
 from Trie import Trie
 from Tile import Tile
+from Board import Board
 
 def main():
-    a = Tile("A", 1)
-    for i in range(10):
-        tile = Tile("A", 1)
-    print(a.get_letters_remaining())
+    board = Board(file="hello.png")
 
 
 if __name__ == "__main__":
