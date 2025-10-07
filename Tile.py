@@ -14,5 +14,11 @@ class Tile:
         self.letter_value = self.__VALUES[letter]
         self.multiplier = multiplier
         self.__letters_remaining[letter] -= 1
+        self.letter_score = self.letter_value * self.multiplier
         print(self.__letters_remaining)
+
+        for letter,remaining in self.__letters_remaining.items():
+            if remaining < 0:
+                print("error")
+                raise Exception(f"too many {letter} tiles used")
         
