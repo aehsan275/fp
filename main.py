@@ -1,9 +1,9 @@
 from Trie import Trie
+from Tile import Tile
 
 def main():
-    trie = Trie("words.txt")
-    print(trie.is_valid_word("AA"))
-    print(trie.get_valid_words("AA"))
+    for i in range(5):
+        tile = Tile("A", 1)
 
 
 if __name__ == "__main__":

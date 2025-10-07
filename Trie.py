@@ -1,4 +1,5 @@
 class TrieNode:
+
     def __init__(self):
         self.__children = [None] * 26
         self.__end_of_word = False
@@ -16,7 +17,6 @@ class TrieNode:
         self.__end_of_word = value
 
 
-
 class Trie:
 
     def __init__(self, filename):
@@ -25,10 +25,9 @@ class Trie:
         with open(filename, "r") as f:
             words = f.read().split("\n")
         for word in words:
-            self.insert_word(word)
+            self.__insert_word(word)
         
-
-    def insert_word(self, word):
+    def __insert_word(self, word):
         current = self.__root # start at the root
         for character in word: # go through every character in the word
             index = ord(character) - 65 # 65 is the ASCII for 'A', so subtracting gives the index of the character in the alphabet
