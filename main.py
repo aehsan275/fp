@@ -1,12 +1,9 @@
-from Dictionary import Dictionary
 from Trie import Trie
 
 def main():
-    dictionary = Dictionary("words.txt")
-    dictionary.read_words()
-    trie = Trie(dictionary.dictionary)
-    trie.insert_dictionary()
-    print(trie.is_valid("AALSSFDSFSDFASD"))
+    trie = Trie("words.txt")
+    print(trie.is_valid_word("AA"))
+    trie.__dfs(1,1)
 
 
 if __name__ == "__main__":
